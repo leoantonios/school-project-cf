@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Login() {
+export default function Register() {
   return (
     <>
 
@@ -31,7 +31,7 @@ export default function Login() {
             </button>
             <p className="mt-4 text-sm">
                 Quiere una Cuenta?{" "}
-              <Link className="underline  cursor-pointer" to="/register"> Registrate</Link>
+              <Link className="underline  cursor-pointer" to="/"> Registrate</Link>
             </p>
           </div>
         </div>
