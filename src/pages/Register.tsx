@@ -38,12 +38,12 @@ export default function Register() {
         password
       })
 
-      if (data) {
+      if (data?.user) {
         navigate("/confirm");
-
+        console.log(data);
       }
 
-      // console.log(error);
+
 
     } catch (error) {
       console.error(error)

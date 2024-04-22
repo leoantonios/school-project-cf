@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className="navbar-center lg:w-1/2 hidden lg:flex text-gray-500 font-medium">
           <ul className="">
             {estaLogueado
-              ? <li className="btn  hover:bg-indigo-700 border-none text-white py-3.5 px-4 h-auto min-h-min capitalize tracking-wider"><Link to="/panel">Panel de Control</Link></li>
+              ? <Link to="/panel"><li className="btn  hover:bg-indigo-700 border-none text-white py-3.5 px-4 h-auto min-h-min capitalize tracking-wider">Panel de Control</li></Link>
               : <li></li>
             }
 

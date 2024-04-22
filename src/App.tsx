@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
 import Confirm from "./pages/Confirm";
 import Panel from "./pages/Panel";
+import Estudiantes from "./pages/Estudiantes";
+import RegistrosNotas from "./pages/RegistrosNotas";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/confirm"element={<Confirm/>} />
               <Route path="/panel"element={<Panel/>} />
+              <Route path="/estudiantes"element={<Estudiantes/>} />
+              <Route path="/registros"element={<RegistrosNotas/>} />
               <Route path="*" element={<NotFound />} />
 
             </Routes>
