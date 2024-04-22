@@ -1,7 +1,22 @@
 import "../App.css";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import Botones from './Botones';
+import useUserStatus from "../state/user-status";
 
 const Navbar = () => {
+
+  const {estaLogueado, setEstaLogueado } = useUserStatus();
+
+
+  useEffect(()=>{
+
+    setEstaLogueado();
+
+  },[estaLogueado]);
+
+
+
   return (
     <>
       <div className="navbar bg-gray-200 px-5 py-5 mt-7 rounded-md relative z-10">
@@ -11,22 +26,18 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center lg:w-1/2 hidden lg:flex text-gray-500 font-medium">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a className="hover:text-purple-500">About</a>
-            </li>
+          <ul className="">
+            {estaLogueado
+              ? <li className="btn  hover:bg-indigo-700 border-none text-white py-3.5 px-4 h-auto min-h-min capitalize tracking-wider"><Link to="/panel">Panel de Control</Link></li>
+              : <li></li>
+            }
 
-            <li>
-              <a className="hover:text-purple-500">Blog</a>
-            </li>
           </ul>
         </div>
         <div className="navbar-end">
 
-          <Link className="text-purple-500 hover:text-indigo-700 cursor-pointer py-3 px-4 capitalize tracking-wider font-semibold" to="/">Registrate</Link>
-          <Link className="btn bg-purple-500 hover:bg-indigo-700 border-none text-white py-3.5 px-4 h-auto min-h-min capitalize tracking-wider" to="/login">
-            Iniciar Sesion
-          </Link>
+          <Botones estado={estaLogueado}/>
+
         </div>
       </div>
     </>

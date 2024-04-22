@@ -1,9 +1,60 @@
+import { useForm, SubmitHandler } from "react-hook-form";
+import { supabase } from "../backend/supabase";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import useUserStatus from "../state/user-status";
+
+
+
+type Inputs = {
+  email: string;
+  password: string;
+};
 
 export default function Register() {
+
+  const navigate = useNavigate();
+  const {estaLogueado} = useUserStatus();
+
+  useEffect(()=>{
+
+    if (estaLogueado) {
+      navigate("/panel")
+    }
+
+  },[estaLogueado]);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = async({email,password}) => {
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password
+      })
+
+      if (data) {
+        navigate("/confirm");
+
+      }
+
+      // console.log(error);
+
+    } catch (error) {
+      console.error(error)
+    }
+
+  };
+
   return (
     <>
-
-        <div className="py-12 px-12 bg-white rounded-2xl shadow-xl z-20">
+      <div className="py-12 px-12 bg-white rounded-2xl shadow-xl z-20">
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <h1 className="text-3xl font-bold text-center mb-4 cursor-pointer text-black">
               Registrese
@@ -14,24 +65,26 @@ export default function Register() {
           </div>
           <div className="space-y-4">
             <input
+              {...register("email", {required:true})}
               type="text"
-              placeholder="Email Addres"
+              placeholder="user@example.com"
               className="block text-sm py-3 px-4 rounded-lg w-full border outline-purple-500 bg-slate-100"
             />
+            {errors.email && <span className="text-purple-500">El correo es requerido</span>}
             <input
+              {...register("password", {required:true})}
               type="password"
-              placeholder="Password"
+              placeholder="*******"
               className="block text-sm py-3 px-4 rounded-lg w-full border outline-purple-500 bg-slate-100"
             />
+            {errors.password && <span className="text-purple-500">La contraseña es requerida</span>}
           </div>
           <div className="text-center mt-6">
-            <button className="w-full py-2 text-xl text-white bg-purple-400 rounded-lg hover:bg-purple-500 transition-all">
-              Registrarse
-            </button>
+            <input type="submit" className="w-full py-2 text-xl text-white bg-purple-400 rounded-lg hover:bg-purple-500 transition-all" />
 
           </div>
-        </div>
-
+        </form>
+      </div>
     </>
   );
 }

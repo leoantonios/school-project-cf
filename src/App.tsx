@@ -1,10 +1,13 @@
 import "./App.css";
+import { Toaster } from 'sonner';
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
+import Confirm from "./pages/Confirm";
+import Panel from "./pages/Panel";
 
 function App() {
   return (
@@ -17,11 +20,15 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/confirm"element={<Confirm/>} />
+              <Route path="/panel"element={<Panel/>} />
               <Route path="*" element={<NotFound />} />
+
             </Routes>
           </div>
         </div>
       </main>
+      <Toaster richColors/>
     </>
   );
 }
