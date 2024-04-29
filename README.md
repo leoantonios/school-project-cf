@@ -70,6 +70,8 @@ npm run build
 
 ## Proyecto Ejemplo
 
--
+Pueden registrarse con una cuenta de 10 minutos, y se les enviara un correo de confirmacion.
+- https://school-project-cf.netlify.app/
+
 ---
 Gracias por leer, Atte. Leo
