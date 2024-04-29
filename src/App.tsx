@@ -32,7 +32,7 @@ function App() {
           </div>
         </div>
       </main>
-      <Toaster richColors/>
+      <Toaster richColors expand={true}/>
     </>
   );
 }

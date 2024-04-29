@@ -53,9 +53,44 @@ const useStudentsData = create((set) =>({
                         return 0;
                     })
                 }));
+
             } else {
                 toast.error('Ups! Hubo un problema en la creación');
             }
+
+
+            let registros = await supabase
+            .from('grades')
+            .insert([{
+                name,
+                level,
+                degree,
+                course: "MATEMATICA",
+                userId: user.data.user?.id,
+                studentId: data[0].id
+            },{
+                name,
+                level,
+                degree,
+                course: "COMUNICACION",
+                userId: user.data.user?.id,
+                studentId: data[0].id
+            },{
+                name,
+                level,
+                degree,
+                course: "ARTE",
+                userId: user.data.user?.id,
+                studentId: data[0].id
+            }])
+            .select()
+
+            if (registros.error) throw registros.error;
+            if (registros.data) {
+                toast.success('Los registros del Estudiante se crearon Correctamente');
+            }
+
+
         } catch (error) {
             console.error(error);
         } finally {
@@ -89,8 +124,25 @@ const useStudentsData = create((set) =>({
                 }
 
             } else {
-                toast.error('Ups! Hubo un problema en la desactivacion');
+                toast.error('Ups! Hubo un problema en la operacion');
             }
+
+
+            let gradesUpdated = await supabase
+            .from('grades')
+            .update({status})
+            .eq("userId",user.id)
+            .eq("studentId",id)
+            .select()
+
+
+            if (gradesUpdated.error) throw registros.error;
+            if (gradesUpdated.data) {
+                toast.success('Los registros del Estudiante se actualizaron Correctamente');
+            }
+
+
+
         } catch (error) {
             console.error(error);
         }

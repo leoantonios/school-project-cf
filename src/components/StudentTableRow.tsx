@@ -1,7 +1,7 @@
 import useStudentsData from "../state/students-data";
 
 
-export default function StudentTableRow({student, index}) {
+export default function StudentTableRow({student, index}:any) {
 
     const {togleStudentStatus} = useStudentsData();
 
