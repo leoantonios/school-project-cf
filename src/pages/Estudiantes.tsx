@@ -6,7 +6,7 @@ import StudentsTable from '../components/StudentsTable';
 
 
 export default function Estudiantes() {
-  const { estaLogueado, setEstaLogueado } = useUserStatus();
+  const { estaLogueado } = useUserStatus();
   const navigate = useNavigate();
 
   useEffect(() => {

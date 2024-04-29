@@ -33,7 +33,7 @@ export default function Register() {
   const onSubmit: SubmitHandler<Inputs> = async({email,password}) => {
 
     try {
-      const { data, error } = await supabase.auth.signUp({
+      const { data } = await supabase.auth.signUp({
         email,
         password
       })

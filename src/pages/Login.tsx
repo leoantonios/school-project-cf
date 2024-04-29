@@ -33,7 +33,7 @@ export default function Login() {
   const onSubmit: SubmitHandler<Inputs> = async({email,password}) => {
 
     try {
-      let { data, error } = await supabase.auth.signInWithPassword({
+      let { data } = await supabase.auth.signInWithPassword({
         email,
         password
       })

@@ -5,7 +5,7 @@ import GradesForm from "../components/GradesForm";
 import GradesTable from "../components/GradesTable";
 
 export default function RegistrosNotas() {
-  const { estaLogueado, setEstaLogueado } = useUserStatus();
+  const { estaLogueado } = useUserStatus();
   const navigate = useNavigate();
 
   useEffect(() => {
