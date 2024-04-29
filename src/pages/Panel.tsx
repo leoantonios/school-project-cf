@@ -1,7 +1,19 @@
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import useUserStatus from '../state/user-status';
 
 const Panel = () => {
 
+  const {estaLogueado } = useUserStatus();
+
+  const navigate = useNavigate();
+  useEffect(()=>{
+
+    if (!estaLogueado) {
+      navigate("/");
+    }
+
+  },[estaLogueado]);
 
   return (
     <>
