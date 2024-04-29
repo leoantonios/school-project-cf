@@ -1,30 +1,75 @@
-# React + TypeScript + Vite
+# School Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+School Project, es el proyecto final para el Bootcamp de React⚛️ de Codigo Facilito 🐊
 
-Currently, two official plugins are available:
+Para este projecto utilice react como frontend, y supabase como backend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React](https://img.shields.io/badge/react%20zustand-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![DaisyUI](https://img.shields.io/badge/daisyui-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 
-## Expanding the ESLint configuration
+## Configuracion
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Clonar el repositorio
+- Para poder usar el proyecto localmente o poder desplegarlo por su cuenta, es necesario crear un proyecto en "Supabase" y obtener unas credenciales:
+- Despues de crear el proyecto, se debe contar con 2 tablas dentro de este, una llamada "students" y otra "grades"
+- La tabla students con los siguientes campos:
 
-- Configure the top-level `parserOptions` property like this:
+|            |                          |         |             |   |
+|------------|--------------------------|---------|-------------|---|
+| Name       | Format                   | Type    | Description |   |
+| id         | bigint                   | number  |             |   |
+| created_at | timestamp with time zone | string  |             |   |
+| name       | text                     | string  |             |   |
+| degree     | text                     | string  |             |   |
+| userId     | uuid                     | string  |             |   |
+| level      | text                     | string  |             |   |
+| status     | boolean                  | boolean |             |   |
+
+- Y la tabla grades con los siguientes campos:
+
+| Name       | Format                   | Type    | Description |
+|------------|--------------------------|---------|-------------|
+| id         | bigint                   | number  |             |
+| created_at | timestamp with time zone | string  |             |
+| grade1     | smallint                 | number  |             |
+| grade2     | smallint                 | number  |             |
+| grade3     | smallint                 | number  |             |
+| grade4     | smallint                 | number  |             |
+| grade5     | smallint                 | number  |             |
+| userId     | uuid                     | string  |             |
+| studentId  | bigint                   | number  |             |
+| course     | text                     | string  |             |
+| status     | boolean                  | boolean |             |
+| name       | text                     | string  |             |
+| level      | text                     | string  |             |
+
+- Adicional: Desactivar las policies para no obtener un error a la creacion de recursos(Debe ser corregido el codigo para usar Policies)
+- Una vez creado y obtenido las credenciales, copia el documento .env.example, lo renombra con .env.local y pega las credenciales
 
 ```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+
+VITE_SUPABASE_URL=//URL_DEL_PROJECTO_SUPABASE
+VITE_SUPABASE_ANON_KEY=//LLAVE_DEL_PROJECTO_SUPABASE
+
+```
+- Al final ejecutar lo siguiente si desea probar el proyecto localmente
+
+```js
+npm run dev
+```
+- O hacer el dist, para desplegarlo
+
+```js
+npm run build
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Proyecto Ejemplo
+
+-
+---
+Gracias por leer, Atte. Leo
