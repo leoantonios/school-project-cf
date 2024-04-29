@@ -16,7 +16,7 @@ const useGradesData = create((set) => ({
         data: { user },
       } = await supabase.auth.getUser();
 
-      let query = supabase.from("grades").select().eq("status", status);
+      let query = supabase.from("grades").select().eq("status", status).eq("userId", user.id);
 
       if (level) {
         query.eq("level", level);

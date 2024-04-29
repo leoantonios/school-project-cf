@@ -10,8 +10,6 @@ export default function GradesTableRowNota({numberGrade, grade, gradeValue}:any)
 
     setGradeValueForm(e.target.value);
 
-    console.log(e.target.value);
-
     if (e.target.value.trim().length > 1){
 
         updateGrade(grade.id, {
@@ -27,7 +25,7 @@ export default function GradesTableRowNota({numberGrade, grade, gradeValue}:any)
     <>
 
         <input type="number"className="block text-black bg-slate-200 border-1 w-[90px]"
-            value={gradeValueForm}
+            value={gradeValueForm? gradeValueForm : ''}
           onChange={onSubmitNotas}
         />
 
