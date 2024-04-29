@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useUserStatus from '../state/user-status';
+import estudiantesImg from '../assets/estudiantes.png';
+import registrosImg from '../assets/registros.png';
 
 const Panel = () => {
 
@@ -22,7 +24,7 @@ const Panel = () => {
           <div className="card card-compact w-96 shadow-xl">
             <figure>
               <img
-                src="../public/estudiantes.png"
+                src={estudiantesImg}
                 alt="Estudiantes"
               />
             </figure>
@@ -39,7 +41,7 @@ const Panel = () => {
           <div className="card card-compact w-96 shadow-xl">
             <figure>
               <img
-                src="../public/registros.png"
+                src={registrosImg}
                 alt="Registros"
               />
             </figure>

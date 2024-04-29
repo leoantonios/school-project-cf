@@ -1,9 +1,11 @@
+import emailImg from '../assets/email.png';
+
 export default function Confirm() {
   return (
     <div className="hero ">
       <div className="hero-content flex-col lg:flex-row">
         <img
-          src="../public/email.png"
+          src={emailImg}
           className="max-w-24 rounded-lg "
         />
         <div>
